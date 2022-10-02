@@ -32,3 +32,36 @@ end)
 PlayerSection:NewSlider("Salto", "Mude a altura de seu salto", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
+
+PlayerSection:NewButton("Resetar Salto/Velocidade", "Velocidade 16 e Salto 50", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+PlayerSection:NewButton("Fullbright", "Faz você ver no escuro", function()
+    
+	local Light = game:GetService("Lighting")
+
+function dofullbright()
+Light.Ambient = Color3.new(1, 1, 1)
+Light.ColorShift_Bottom = Color3.new(1, 1, 1)
+Light.ColorShift_Top = Color3.new(1, 1, 1)
+end
+
+dofullbright()
+
+Light.LightingChanged:Connect(dofullbright)
+end)
+
+-- Hubs
+
+local Hub = Window:NewTab("Hub")
+local HubSection = Hub:NewSection("Hub")
+
+HubSection:NewButton("Arsenal", "Arsenal Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/HonestlyDex/DexHub/main/V3.lua"))()
+end)
+
+HubSection:NewButton("Blox Fruits", "Blox Fruits Hub", function()
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+end)
